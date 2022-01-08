@@ -15,10 +15,7 @@ class MainWeb {
             config.addStaticFiles("/html")
         }
         app.get("/", VueComponent("<play></play>"))
-        app.get("/demo", VueComponent("<demo></demo>"))
         app.get("/play", VueComponent("<play></play>"))
-        app.get("/manual", VueComponent("<manual></manual>"))
-        app.get("/rebuild", VueComponent("<rebuild></rebuild>"))
         RestEndpoints().initRestEndpoints(app)
         log.info("Starting server")
         app.start(8080)
