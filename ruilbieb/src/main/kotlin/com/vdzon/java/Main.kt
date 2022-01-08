@@ -34,8 +34,8 @@ object Main {
 
     fun button(pin: Pin) = gpio.provisionDigitalInputPin(
             pin,  // PIN NUMBER
-            "MyButton_"+pin.name,  // PIN FRIENDLY NAME (optional)
-            PinPullResistance.PULL_DOWN
+            "MyButton_"+pin.name  // PIN FRIENDLY NAME (optional)
+//            PinPullResistance.PULL_DOWN
         )
 
 
