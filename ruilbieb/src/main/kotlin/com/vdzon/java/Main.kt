@@ -1,6 +1,7 @@
 package com.vdzon.java
 
 import com.pi4j.Pi4J
+import com.pi4j.context.Context
 import com.pi4j.io.gpio.digital.DigitalInput
 import com.pi4j.io.gpio.digital.DigitalState
 import com.pi4j.io.gpio.digital.DigitalStateChangeEvent
@@ -20,7 +21,7 @@ object Main {
          val PIN_BUTTON2 = 2
          var pressCount = 0
 
-        val pi4j = Pi4J.newAutoContext()
+        val pi4j: Context = Pi4J.newAutoContext()
 
         val buttonConfig1 = DigitalInput.newConfigBuilder(pi4j)
             .id("button1")
@@ -69,6 +70,14 @@ object Main {
             }
         })
 
+
+        createButton(2, pi4j)
+        createButton(8, pi4j)
+        createButton(28, pi4j)
+        createButton(20, pi4j)
+        createButton(38, pi4j)
+        createButton(3, pi4j)
+
         while (true) {
             println("sleep")
             Thread.sleep(5000)
@@ -78,4 +87,22 @@ object Main {
         pi4j.shutdown()
 
     }
+
+    fun createButton(pin: Int, pi4j: Context){
+
+        val buttonConfig2 = DigitalInput.newConfigBuilder(pi4j)
+            .id("button"+pin)
+            .name("Press button")
+            .address(pin)
+            .pull(PullResistance.PULL_DOWN)
+            .debounce(3000L)
+            .provider("pigpio-digital-input")
+        val button2 = pi4j.create(buttonConfig2)
+
+        button2.addListener(DigitalStateChangeListener { e: DigitalStateChangeEvent<*> ->
+            println("#got event $pin:" + e)
+        })
+
+    }
+
 }
