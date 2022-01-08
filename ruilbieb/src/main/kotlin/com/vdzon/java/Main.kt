@@ -16,13 +16,13 @@ object Main {
     fun main(args: Array<String>) {
         MainWeb().start()
 
-        val b1 = button(RaspiPin.GPIO_02)
-        val b2 = button(RaspiPin.GPIO_08)
-        val b3 = button(RaspiPin.GPIO_28)
-        val b4 = button(RaspiPin.GPIO_20)
-        val b5 = button(RaspiPin.GPIO_03)
+        val b1 = button(RaspiPin.GPIO_25)
+//        val b2 = button(RaspiPin.GPIO_08)
+//        val b3 = button(RaspiPin.GPIO_28)
+//        val b4 = button(RaspiPin.GPIO_20)
+//        val b5 = button(RaspiPin.GPIO_03)
         while (true){
-            println("${b1.state} ${b2.state} ${b3.state} ${b4.state} ${b5.state}")
+            println("${b1.state}")
             Thread.sleep(1000)
         }
 
@@ -34,8 +34,8 @@ object Main {
 
     fun button(pin: Pin) = gpio.provisionDigitalInputPin(
             pin,  // PIN NUMBER
-            "MyButton_"+pin.name  // PIN FRIENDLY NAME (optional)
-//            PinPullResistance.PULL_DOWN
+            "MyButton_"+pin.name,  // PIN FRIENDLY NAME (optional)
+            PinPullResistance.PULL_DOWN
         )
 
 
