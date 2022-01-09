@@ -1,7 +1,17 @@
 <template id="play">
   <app-frame>
     <div>
-      Ruilbieb: {{status}}
+      Ruilbieb:
+
+      <table>
+        <tbody>
+        <tr v-for="action in actions">
+          <td>{{action.timestampString}}</td>
+          <td>{{action.actionString}}</td>
+        </tr>
+        </tbody>
+      </table>
+
     </div>
   </app-frame>
 </template>
@@ -14,7 +24,7 @@
 Vue.component("play", {
   template: "#play",
   data: () => ({
-    status: "TEST",
+    actions: {},
   }),
 
   created() {
@@ -24,7 +34,7 @@ Vue.component("play", {
     load: function (event) {
       fetch(`/api/game/load`)
           .then(res => res.text())
-          .then(text => this.status = text)
+          .then(text => this.actions = JSON.parse(text))
           .catch(err => alert(err));
     },
   }

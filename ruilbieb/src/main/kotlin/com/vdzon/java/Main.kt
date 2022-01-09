@@ -17,32 +17,19 @@ object Main {
         MainWeb().start()
 
         Database.init()
-        Database.deurOpen()
-        Thread.sleep(10)
-        Database.deurDicht()
-        Thread.sleep(15)
-        Database.deurOpen()
-        Thread.sleep(17)
-        Database.deurDicht()
-        val res =  Database.getAll()
-        res.forEach{
-            val time = Date(it.timestamp)
-            println("$time ${it.action}")
-        }
 
 
         val gpio: GpioController = GpioFactory.getInstance();
         val b1 = gpio.provisionDigitalInputPin(
-            RaspiPin.GPIO_25,  // PIN NUMBER
-            "MyButton",  // PIN FRIENDLY NAME (optional)
+            RaspiPin.GPIO_25,
+            "Deur",
             PinPullResistance.PULL_DOWN
         )
         var lastState = b1.state.isHigh
 
         while (true){
             val state = b1.state.isHigh
-            println("${state}")
-            Thread.sleep(1000)
+            Thread.sleep(500)
             if (state!=lastState){
                 lastState = state
                 if (state ){
