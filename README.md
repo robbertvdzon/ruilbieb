@@ -2,11 +2,10 @@
 
 ### install jdk8 (11 is not supported on the pi zero w)
 sudo apt update
-sudo apt remove openjdk-11-jdk
-sudo apt remove openjdk-11-jre
-sudo apt remove openjdk-11-jre-headless
-sudo apt autoremove
 sudo apt install openjdk-8-jre
+
+### install git
+sudo apt install git
 
 
 ### clone and build WiringPi (needed for the pi4j library)
