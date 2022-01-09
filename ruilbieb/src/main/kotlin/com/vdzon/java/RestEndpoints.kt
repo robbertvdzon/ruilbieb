@@ -6,7 +6,7 @@ import io.javalin.http.Context
 class RestEndpoints {
 
     fun initRestEndpoints(app: Javalin) {
-        app["/api/game/load", { ctx: Context? ->  ctx?.result("HALLO!")}]
+        app["/api/game/load", { ctx: Context? ->  ctx?.json(Database.getAll())}]
     }
 
 

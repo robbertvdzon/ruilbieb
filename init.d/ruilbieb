@@ -1,4 +1,4 @@
-# /etc/init.d/ruilbieb
+#!/bin/sh
 ### BEGIN INIT INFO
 # Provides:          ruilbiebe
 # Required-Start:    $remote_fs $syslog

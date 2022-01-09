@@ -33,6 +33,6 @@ cd ruilbieb
 sudo cp /home/pi/git/ruilbieb/init.d/ruilbieb /etc/init.d/
 sudo chmod +x /etc/init.d/ruilbieb
 cd /etc/init.d/
-sudo update-rc.d ruilbieb.py defaults
+sudo update-rc.d ruilbieb defaults
 sudo reboot
 ```
