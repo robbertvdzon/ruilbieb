@@ -1,0 +1,28 @@
+# /etc/init.d/ruilbieb
+### BEGIN INIT INFO
+# Provides:          ruilbiebe
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start ruilbieb at boot time
+# Description:       Ruilbieb server
+### END INIT INFO
+
+case "$1" in
+    start)
+        echo "Starting example"
+        # run the program you want to start
+        java -jar /home/pi/git/ruilbieb/ruilbieb/target/ruilbieb-1.0-shaded.jar > /tmp/ruilbieb.log &
+    ;;
+    stop)
+        echo "Stopping example"
+        # end the program you want to stop
+        killall java
+    ;;
+    *)
+         echo "Usage: /etc/init.d/ruilbieb {start|stop}"
+         exit 1
+     ;;
+esac
+
