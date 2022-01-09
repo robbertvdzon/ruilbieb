@@ -27,11 +27,20 @@ cd ruilbieb
 ./run.sh
 ```
 
-### run application at boot
+### run application at boot for ruilbieb
 ```
 sudo cp /home/pi/git/ruilbieb/init.d/ruilbieb /etc/init.d/
 sudo chmod +x /etc/init.d/ruilbieb
 cd /etc/init.d/
 sudo update-rc.d ruilbieb defaults
+sudo reboot
+```
+
+### run application at boot for ruilbiebdisplay
+```
+sudo cp /home/pi/git/ruilbieb/init.d/ruilbiebdisplay /etc/init.d/
+sudo chmod +x /etc/init.d/ruilbiebdisplay
+cd /etc/init.d/
+sudo update-rc.d ruilbiebdisplay defaults
 sudo reboot
 ```
