@@ -15,7 +15,7 @@ object Main {
         var _lcd: I2CLCD? = null
 
         val bus: I2CBus = I2CFactory.getInstance(I2CBus.BUS_1)
-        _device = bus.getDevice(0x27)
+        _device = bus.getDevice(0x38)
         _lcd = I2CLCD(_device)
         _lcd.init()
         _lcd.backlight(true)
