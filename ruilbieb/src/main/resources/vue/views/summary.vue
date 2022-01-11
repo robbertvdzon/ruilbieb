@@ -2,18 +2,15 @@
   <app-frame>
     <div>
       Ruilbieb:
-<!--      <div v-if="summary">-->
-<!--      Totaal: {{summary.total}}-->
-<!--      </div>-->
 
-      <table>
-        <tbody>
-        <tr v-for="summ in summary.dagSummary">
-          <td>{{summ.dag}}</td>
-          <td>{{summ.count}}</td>
-        </tr>
-        </tbody>
-      </table>
+            <table>
+              <tbody>
+              <tr v-for="action in actions">
+                <td>{{action.timestampString}}</td>
+                <td>{{action.actionString}}</td>
+              </tr>
+              </tbody>
+            </table>
 
     </div>
   </app-frame>
@@ -27,7 +24,7 @@
 Vue.component("summary", {
   template: "#summary",
   data: () => ({
-    summary: {},
+    actions: {}
   }),
 
   created() {
@@ -35,9 +32,9 @@ Vue.component("summary", {
   },
   methods: {
     load: function (event) {
-      fetch(`/api/game/summary`)
+      fetch(`/api/game/load`)
           .then(res => res.text())
-          .then(text => this.summary = JSON.parse(text))
+          .then(text => this.actions = JSON.parse(text))
           .catch(err => alert(err));
     },
   }

@@ -3,9 +3,9 @@
     <div>
       Ruilbieb:
 
-            <div v-if="summary">
-            Totaal: {{summary.total}}
-            </div>
+      <div v-if="summary">
+        Totaal: {{summary.total}} <a href="summary">(lijst)</a>
+      </div>
 
 
       <table>
@@ -17,15 +17,6 @@
         </tbody>
       </table>
 
-
-<!--      <table>-->
-<!--        <tbody>-->
-<!--        <tr v-for="action in actions">-->
-<!--          <td>{{action.timestampString}}</td>-->
-<!--          <td>{{action.actionString}}</td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--      </table>-->
 
     </div>
   </app-frame>
@@ -48,10 +39,6 @@ Vue.component("play", {
   },
   methods: {
     load: function (event) {
-      // fetch(`/api/game/load`)
-      //     .then(res => res.text())
-      //     .then(text => this.actions = JSON.parse(text))
-      //     .catch(err => alert(err));
       fetch(`/api/game/summary`)
           .then(res => res.text())
           .then(text => this.summary = JSON.parse(text))
