@@ -16,6 +16,7 @@ class MainWeb {
         }
         app.get("/", VueComponent("<play></play>"))
         app.get("/play", VueComponent("<play></play>"))
+        app.get("/summary", VueComponent("<summary></summary>"))
         RestEndpoints().initRestEndpoints(app)
         log.info("Starting server")
         app.start(8080)

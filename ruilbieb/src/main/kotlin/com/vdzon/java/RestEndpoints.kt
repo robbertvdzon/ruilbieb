@@ -7,7 +7,11 @@ class RestEndpoints {
 
     fun initRestEndpoints(app: Javalin) {
         app["/api/game/load", { ctx: Context? ->  ctx?.json(Database.getAll())}]
+
+        app["/api/game/summary", { ctx: Context? ->  ctx?.json(Database.getSummary())}]
+
     }
+
 
 
 }

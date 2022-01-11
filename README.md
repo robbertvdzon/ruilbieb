@@ -35,14 +35,3 @@ cd /etc/init.d/
 sudo update-rc.d ruilbieb defaults
 sudo reboot
 ```
-
-### run application at boot for ruilbiebdisplay
-```
-sudo apt install i2c-tools
-
-sudo cp /home/pi/git/ruilbieb/init.d/ruilbiebdisplay /etc/init.d/
-sudo chmod +x /etc/init.d/ruilbiebdisplay
-cd /etc/init.d/
-sudo update-rc.d ruilbiebdisplay defaults
-sudo reboot
-```
