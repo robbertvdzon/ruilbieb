@@ -1,4 +1,4 @@
-<template id="summary">
+<template id="listing">
   <app-frame>
     <div>
       Ruilbieb:
@@ -21,8 +21,8 @@
 
 <script>
 
-Vue.component("summary", {
-  template: "#summary",
+Vue.component("listing", {
+  template: "#listing",
   data: () => ({
     actions: {}
   }),

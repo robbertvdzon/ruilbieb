@@ -4,7 +4,7 @@
       Ruilbieb:
 
       <div v-if="summary">
-        Totaal: {{summary.total}} <a href="summary">(lijst)</a>
+        Totaal: {{summary.total}} <a href="listing">(lijst)</a>
       </div>
 
 
