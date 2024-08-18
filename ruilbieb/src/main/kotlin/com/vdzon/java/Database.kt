@@ -61,7 +61,7 @@ object Database {
             val today = all.filter { it.timestamp > thisMorningTimestamp }.size
             var index = thisMorningTimestamp
             val list: MutableList<DagSummary> = mutableListOf(DagSummary(getDateString(index), today))
-            for (day in 1..10) {
+            for (day in 1..100) {
                 val end = index
                 index = index - 24 * 60 * 60 * 1000
                 val count = all.filter { it.timestamp > index && it.timestamp < end }.size
